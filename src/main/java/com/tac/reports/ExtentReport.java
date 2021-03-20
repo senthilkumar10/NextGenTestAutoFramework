@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.tac.constants.FrameworkConstants;
 
 import java.awt.*;
 import java.io.File;
@@ -18,7 +19,7 @@ public final class ExtentReport {
     public static void initReport(){
         if(Objects.isNull(extent)){
             extent = new ExtentReports();
-            ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
+            ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentreportpath());
 
             //final File CONF = new File("./extentconfig.xml");
             //spark.loadXMLConfig(CONF);
