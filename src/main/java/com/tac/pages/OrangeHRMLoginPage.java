@@ -10,17 +10,17 @@ public final class OrangeHRMLoginPage extends BasePage {
     private final By buttonLogin = By.id("btnLogin");
 
     public OrangeHRMLoginPage enterUserName(String userName){
-        enterText(textboxUsername,userName, WaitStrategy.PRESENCE);
+        enterText(textboxUsername,userName, WaitStrategy.PRESENCE,"User Name");
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password){
-        enterText(textboxPassword,password,WaitStrategy.PRESENCE);
+        enterText(textboxPassword,password,WaitStrategy.PRESENCE,"Password");
         return this;
     }
 
     public OrangeHRMHomePage clickLogin(){
-        click(buttonLogin, WaitStrategy.CLICKABLE);
+        click(buttonLogin, WaitStrategy.CLICKABLE,"Login button");
         return new OrangeHRMHomePage();
     }
 

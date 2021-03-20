@@ -11,8 +11,6 @@ public class OrangeHRMTest extends BaseTest {
     @Test(dataProvider="LoginPageTestData")
     public void loginLogoutTest(String userName,String Password) {
 
-        ExtentReport.createReport("Login Logout");
-
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
 
         String title = loginPage

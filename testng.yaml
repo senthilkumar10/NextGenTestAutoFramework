@@ -1,5 +1,6 @@
 name: Suite
-
+listeners:
+  - com.tac.listeners.ListenerClass
 tests:
   - name: Test
     threadCount: 1
