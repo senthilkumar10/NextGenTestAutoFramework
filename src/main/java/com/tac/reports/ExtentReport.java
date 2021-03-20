@@ -37,8 +37,6 @@ public final class ExtentReport {
         if(Objects.nonNull(extent)){
             extent.flush();
         }
-        Desktop.getDesktop().browse(new File("index.html").toURI());
-
     }
 
     public static void createReport(String testcaseName){

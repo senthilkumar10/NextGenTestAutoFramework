@@ -1,6 +1,7 @@
 name: Suite
 listeners:
   - com.tac.listeners.ListenerClass
+  - com.tac.listeners.MethodInterceptor
 tests:
   - name: Test
     threadCount: 1
