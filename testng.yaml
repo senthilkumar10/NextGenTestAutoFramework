@@ -1,0 +1,11 @@
+name: Suite
+
+tests:
+  - name: Test
+    threadCount: 1
+    parallel: methods
+    classes:
+      - com.tac.tests.OrangeHRMTest
+
+
+
