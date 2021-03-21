@@ -1,45 +1,38 @@
 package com.tac.tests;
 
 import com.tac.pages.OrangeHRMLoginPage;
+import com.tac.utility.DataProviderUtils;
 import org.assertj.core.api.Assertions;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class OrangeHRMTest extends BaseTest {
 
-    @Test(dataProvider="LoginPageTestData")
-    public void loginLogoutTest(String userName,String Password) {
+    @Test(dataProvider="getData",dataProviderClass = DataProviderUtils.class)
+    public void loginLogoutTest(Map<String,String> data) {
 
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
 
         String title = loginPage
-                .enterUserName(userName).enterPassword(Password).clickLogin()
+                .enterUserName(data.get("userName")).enterPassword(data.get("Password")).clickLogin()
                 .clickLinkWelcome().clickLogout().getTitle();
 
         Assertions.assertThat(title).containsIgnoringCase("OrangeHRM");
 
     }
 
-    @Test(dataProvider="LoginPageTestData")
-    public void newTest(String userName,String Password) {
+    @Test(dataProvider="getData",dataProviderClass = DataProviderUtils.class)
+    public void newTest(Map<String,String> data) {
 
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
 
         String title = loginPage
-                .enterUserName(userName).enterPassword(Password).clickLogin()
+                .enterUserName(data.get("userName")).enterPassword(data.get("Password")).clickLogin()
                 .clickLinkWelcome().clickLogout().getTitle();
 
         Assertions.assertThat(title).containsIgnoringCase("OrangeHRM");
 
-    }
-
-
-    @DataProvider(name = "LoginPageTestData",parallel = true)
-    public Object[][] getTestData(){
-        return new Object[][]{
-                {"Admin","admin123"}
-               // {"Admin","admin123"}
-        };
     }
 
 }

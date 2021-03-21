@@ -13,7 +13,7 @@ public final class FrameworkConstants {
     private static final String CHROMEDRIVERPATH = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver";
     private static final String CONFIGFILEPATH = "./config.properties";
     private static final String EXTENTREPORTPATH = "./extent-test-output";
-    private static final String TESTEXECEXCELPATH = System.getProperty("user.dir") + "/src/test/resources/runmanager/TestExecution.xlsx";
+    private static final String TESTEXECEXCELPATH = System.getProperty("user.dir") + "/src/test/resources/runmanager/TestData.xlsx";
 
     public static String getExtentreportpath() {
         return EXTENTREPORTPATH+"/TestReport_"+System.currentTimeMillis()+".html";

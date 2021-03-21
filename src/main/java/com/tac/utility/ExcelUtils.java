@@ -13,14 +13,14 @@ public final class ExcelUtils {
 
     private ExcelUtils(){}
 
-    public static List<Map<String,String>> getTestExecutionDetails()  {
+    public static List<Map<String,String>> getTestExecutionDetails(String sheetName)  {
 
         FileInputStream fis = null;
         List<Map<String,String>> listOfMaps = null;
         try {
             fis = new FileInputStream(FrameworkConstants.getTestexecexcelpath());
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
-            XSSFSheet sheet = workbook.getSheetAt(0);
+            XSSFSheet sheet = workbook.getSheet(sheetName);
 
             Map<String,String> map = null;
             listOfMaps = new ArrayList<>();
