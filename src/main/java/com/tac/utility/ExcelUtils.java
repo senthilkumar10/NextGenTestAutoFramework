@@ -29,8 +29,8 @@ public final class ExcelUtils {
             int lastColCount = sheet.getRow(0).getLastCellNum();
 
             for(int i=1;i<=lastRowCount;i++){
+                map = new HashMap<>();
                 for(int j=0;j<lastColCount;j++){
-                    map = new HashMap<>();
                     String key = sheet.getRow(0).getCell(j).getStringCellValue();
                     String value = sheet.getRow(i).getCell(j).getStringCellValue();
                     map.put(key, value);

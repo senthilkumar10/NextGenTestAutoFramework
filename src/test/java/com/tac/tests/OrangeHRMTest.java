@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 
 public class OrangeHRMTest extends BaseTest {
 
-    //@Test(dataProvider="LoginPageTestData")
-    @Test
+    @Test(dataProvider="LoginPageTestData")
     public void loginLogoutTest(String userName,String Password) {
 
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
@@ -21,7 +20,7 @@ public class OrangeHRMTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(dataProvider="LoginPageTestData")
     public void newTest(String userName,String Password) {
 
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
@@ -38,8 +37,8 @@ public class OrangeHRMTest extends BaseTest {
     @DataProvider(name = "LoginPageTestData",parallel = true)
     public Object[][] getTestData(){
         return new Object[][]{
-                {"Admin","admin123"},
-                {"Admin","admin124"}
+                {"Admin","admin123"}
+               // {"Admin","admin123"}
         };
     }
 
