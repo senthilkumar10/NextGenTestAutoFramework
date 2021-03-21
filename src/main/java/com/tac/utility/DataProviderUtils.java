@@ -24,14 +24,12 @@ public final class DataProviderUtils {
 
         for(int i=0;i<list.size();i++){
 
-            if(list.get(i).get("MethodName").equalsIgnoreCase(testName)){
-                if(list.get(i).get("Execution Flag").equalsIgnoreCase("yes")){
+            if(list.get(i).get("MethodName").equalsIgnoreCase(testName) &&
+                    list.get(i).get("Execution Flag").equalsIgnoreCase("yes")){
                     filteredList.add(list.get(i));
-                }
             }
 
         }
-        list.removeAll(filteredList);
         return filteredList.toArray();
     }
 }

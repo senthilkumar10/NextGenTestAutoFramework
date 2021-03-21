@@ -2,6 +2,7 @@ name: Suite
 listeners:
   - com.tac.listeners.ListenerClass
   - com.tac.listeners.MethodInterceptor
+  - com.tac.listeners.AnnotationTransformer
 tests:
   - name: Test
     threadCount: 1

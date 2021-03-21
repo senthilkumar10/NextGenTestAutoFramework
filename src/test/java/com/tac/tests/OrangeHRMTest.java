@@ -1,5 +1,6 @@
 package com.tac.tests;
 
+import com.tac.listeners.RetryFailedTest;
 import com.tac.pages.OrangeHRMLoginPage;
 import com.tac.utility.DataProviderUtils;
 import org.assertj.core.api.Assertions;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 public class OrangeHRMTest extends BaseTest {
 
-    @Test(dataProvider="getData",dataProviderClass = DataProviderUtils.class)
+    @Test
     public void loginLogoutTest(Map<String,String> data) {
 
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
@@ -22,7 +23,7 @@ public class OrangeHRMTest extends BaseTest {
 
     }
 
-    @Test(dataProvider="getData",dataProviderClass = DataProviderUtils.class)
+    @Test
     public void newTest(Map<String,String> data) {
 
         OrangeHRMLoginPage loginPage = new OrangeHRMLoginPage();
