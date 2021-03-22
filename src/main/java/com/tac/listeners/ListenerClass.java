@@ -1,5 +1,6 @@
 package com.tac.listeners;
 
+import com.tac.customannotations.FrameworkAnnotations;
 import com.tac.reports.ExtentLogger;
 import com.tac.reports.ExtentReport;
 import org.testng.*;
@@ -26,6 +27,10 @@ public class ListenerClass implements ITestListener, ISuiteListener {
     @Override
     public void onTestStart(ITestResult result) {
         ExtentReport.createReport(result.getMethod().getMethodName());
+        ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
+                .getAnnotation(FrameworkAnnotations.class).Authors());
+        ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod()
+                .getAnnotation(FrameworkAnnotations.class).Catagories());
     }
 
     @Override

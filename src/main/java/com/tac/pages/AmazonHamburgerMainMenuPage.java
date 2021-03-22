@@ -1,6 +1,7 @@
 package com.tac.pages;
 
 import com.tac.enums.WaitStrategy;
+import com.tac.utility.DynamicXpathUtils;
 import org.openqa.selenium.By;
 
 public class AmazonHamburgerMainMenuPage extends BasePage{
@@ -9,9 +10,15 @@ public class AmazonHamburgerMainMenuPage extends BasePage{
     private By LinkCDsVinyl = By.xpath("(//a[text()='CDs & Vinyl'])[2]");
     private By linkBooks = By.xpath("//div[text()='Books']/parent::a");
     private By linkSubMenuBooks = By.xpath("(//a[text()='Books'])[2]");
-    private By linkElectronicsComputers = By.xpath("//div[text()='Electronics & Computers']/parent::a");
-    private By linkCameraPhoto = By.xpath("//a[text()='Camera & Photo']");
 
+
+    private String linkSubMenu = "(//a[text()='%s'])[2]";
+
+    public void clickOnSubMenuItem(String menutext){
+        String newXpath = DynamicXpathUtils.clickOnSubMenuItem(linkSubMenu,menutext);
+        click(By.xpath(newXpath),WaitStrategy.CLICKABLE,menutext);
+
+    }
 
     public AmazonCDsVinylPage clicklinkFilmTVMusicGame(){
         click(linkFilmTVMusicGame, WaitStrategy.CLICKABLE,"Flim TV Music Game Link");
@@ -25,11 +32,7 @@ public class AmazonHamburgerMainMenuPage extends BasePage{
         return new AmazonBooksPage();
     }
 
-    public AmazonCameraPhotoPage clicklinkElectronicsComputers(){
-        click(linkElectronicsComputers, WaitStrategy.CLICKABLE,"Electronics Computers Link");
-        click(linkCameraPhoto, WaitStrategy.CLICKABLE,"Camera & Photo Link");
-        return new AmazonCameraPhotoPage();
-    }
+
 
 
 

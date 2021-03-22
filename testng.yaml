@@ -8,7 +8,7 @@ tests:
     threadCount: 1
     parallel: methods
     classes:
-#      - com.tac.tests.OrangeHRMTest
+      - com.tac.tests.OrangeHRMTest
       - com.tac.tests.AmazonMenuTest
 
 

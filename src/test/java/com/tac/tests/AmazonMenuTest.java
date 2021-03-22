@@ -1,20 +1,24 @@
 package com.tac.tests;
 
+import com.tac.customannotations.FrameworkAnnotations;
 import com.tac.pages.AmazonHamburgerMainMenuPage;
+import com.tac.pages.AmazonHomePage;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class AmazonMenuTest extends BaseTest{
 
 
-
+    @FrameworkAnnotations(Authors = {"Senthil","Kumar"},Catagories = {"Smoke","Regression"})
     @Test
-    public void verifyBooksPageTitle(){
-        AmazonHamburgerMainMenuPage hamburgerMainMenuPage = new AmazonHamburgerMainMenuPage();
-        String title =  hamburgerMainMenuPage.clicklinkBooks().getTitle();
+    public void verifyBooksPageTitle(Map<String,String> data){
+        String title =  new AmazonHomePage().clickHamburger()
+         .clicklinkBooks().getTitle();
 
         Assertions.assertThat(title)
-                .containsIgnoringCase("Books");
+                .containsIgnoringCase(data.get("Title"));
 
 
     }
