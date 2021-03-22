@@ -51,9 +51,9 @@ public final class ExtentReport {
         }
     }
 
-    public static void addCategories(String[] categories){
-        for (String temp:categories) {
-            ExtentReportManager.getExtentTest().assignCategory(temp);
+    public static void addCategories(Enum[] categories){
+        for (Enum temp:categories) {
+            ExtentReportManager.getExtentTest().assignCategory(temp.toString().toLowerCase());
         }
     }
 

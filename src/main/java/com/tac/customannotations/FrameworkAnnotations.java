@@ -1,5 +1,7 @@
 package com.tac.customannotations;
 
+import com.tac.enums.CategoryType;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -10,6 +12,6 @@ import static java.lang.annotation.ElementType.METHOD;
 public @interface FrameworkAnnotations {
 
     String[] Authors();
-    String[] Catagories();
+    CategoryType[] Catagories();
 
 }
