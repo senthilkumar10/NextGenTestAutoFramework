@@ -15,10 +15,9 @@ public final class ExcelUtils {
 
     public static List<Map<String,String>> getTestExecutionDetails(String sheetName)  {
 
-        FileInputStream fis = null;
         List<Map<String,String>> listOfMaps = null;
-        try {
-            fis = new FileInputStream(FrameworkConstants.getTestexecexcelpath());
+        try(FileInputStream fis = new FileInputStream(FrameworkConstants.getTestexecexcelpath())) {
+
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
@@ -43,16 +42,7 @@ public final class ExcelUtils {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally{
-            try {
-                if(Objects.nonNull(fis)){
-                    fis.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
-
 
         return listOfMaps;
     }
