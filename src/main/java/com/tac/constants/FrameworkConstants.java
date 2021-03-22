@@ -11,6 +11,7 @@ public final class FrameworkConstants {
     }
 
     private static final String CHROMEDRIVERPATH = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver";
+    private static final String FIREFOXDRIVERPATH = System.getProperty("user.dir") + "/src/test/resources/drivers/geckodriver";
     private static final String CONFIGFILEPATH = "./config.properties";
     private static final String EXTENTREPORTPATH = "./extent-test-output";
     private static final String TESTEXECEXCELPATH = System.getProperty("user.dir") + "/src/test/resources/runmanager/TestData.xlsx";
@@ -31,6 +32,10 @@ public final class FrameworkConstants {
 
     public static String getCHROMEDRIVERPATH() {
         return CHROMEDRIVERPATH;
+    }
+
+    public static String getFirefoxdriverpath() {
+        return FIREFOXDRIVERPATH;
     }
 
     public static String getCONFIGFILEPATH() {

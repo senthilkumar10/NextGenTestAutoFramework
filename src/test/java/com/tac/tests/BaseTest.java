@@ -4,11 +4,14 @@ import com.tac.driver.DriverEngine;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.util.Map;
+
 public class BaseTest {
 
     @BeforeMethod
-    public void setUp() throws Exception {
-        DriverEngine.initDriver();
+    public void setUp(Object[] data) throws Exception {
+        Map<String,String> map = (Map<String, String>) data[0];
+        DriverEngine.initDriver(map.get("Browser"));
     }
 
 
