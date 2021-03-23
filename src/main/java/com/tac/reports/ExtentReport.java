@@ -33,7 +33,7 @@ public final class ExtentReport {
 
     }
 
-    public static void flushReport() throws IOException {
+    public static void flushReport(){
         if(Objects.nonNull(extent)){
             extent.flush();
         }

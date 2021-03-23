@@ -1,6 +1,7 @@
 package com.tac.utility;
 
 import com.tac.constants.FrameworkConstants;
+import com.tac.customexceptions.FrameworkExceptions;
 
 import java.io.FileInputStream;
 import java.util.Objects;
@@ -12,14 +13,14 @@ public final class ReadPropertyFile {
 
     }
 
-    public static String getValue(String key) throws Exception {
+    public static String getValue(String key) {
         Properties property = new Properties();
 
         FileInputStream fis = new FileInputStream(FrameworkConstants.getCONFIGFILEPATH());
         property.load(fis);
 
         if (Objects.isNull(key) || Objects.isNull(property.getProperty(key))) {
-            throw new Exception("Property name : " + key + " is not found. Please check config.properties file");
+            throw new FrameworkExceptions("Property name : " + key + " is not found. Please check config.properties file");
         }
 
         return property.getProperty(key);

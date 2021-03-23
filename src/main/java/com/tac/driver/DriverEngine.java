@@ -12,7 +12,7 @@ public final class DriverEngine {
     private DriverEngine() {
     }
 
-    public static void initDriver(String browser) throws Exception {
+    public static void initDriver(String browser){
         if(browser.equalsIgnoreCase("chrome")){
             if (Objects.isNull(DriverManager.getDriver())) {
                 System.setProperty("webdriver.chrome.driver", FrameworkConstants.getCHROMEDRIVERPATH());

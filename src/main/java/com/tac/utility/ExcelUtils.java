@@ -1,6 +1,7 @@
 package com.tac.utility;
 
 import com.tac.constants.FrameworkConstants;
+import com.tac.customexceptions.FrameworkExceptions;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -39,11 +40,10 @@ public final class ExcelUtils {
 
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FrameworkExceptions("Excel file is not found");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FrameworkExceptions("IO exception happened while reading the Excel");
         }
-
         return listOfMaps;
     }
 

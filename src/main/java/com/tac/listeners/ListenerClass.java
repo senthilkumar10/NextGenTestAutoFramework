@@ -17,11 +17,7 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onFinish(ISuite suite) {
-        try {
-            ExtentReport.flushReport();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ExtentReport.flushReport();
     }
 
     @Override

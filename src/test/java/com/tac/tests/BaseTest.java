@@ -9,7 +9,7 @@ import java.util.Map;
 public class BaseTest {
 
     @BeforeMethod
-    public void setUp(Object[] data) throws Exception {
+    public void setUp(Object[] data) {
         Map<String,String> map = (Map<String, String>) data[0];
         DriverEngine.initDriver(map.get("Browser"));
     }
