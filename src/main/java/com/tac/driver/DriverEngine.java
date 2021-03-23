@@ -1,7 +1,7 @@
 package com.tac.driver;
 
-import com.tac.constants.FrameworkConstants;
 import com.tac.utility.ReadPropertyFile;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -15,13 +15,13 @@ public final class DriverEngine {
     public static void initDriver(String browser){
         if(browser.equalsIgnoreCase("chrome")){
             if (Objects.isNull(DriverManager.getDriver())) {
-                System.setProperty("webdriver.chrome.driver", FrameworkConstants.getCHROMEDRIVERPATH());
+                WebDriverManager.chromedriver().setup();
                 DriverManager.setDriver(new ChromeDriver());
 
             }
         }else if(browser.equalsIgnoreCase("firefox")){
             if (Objects.isNull(DriverManager.getDriver())) {
-                System.setProperty("webdriver.gecko.driver", FrameworkConstants.getFirefoxdriverpath());
+                WebDriverManager.firefoxdriver().setup();
                 DriverManager.setDriver(new FirefoxDriver());
             }
         }
