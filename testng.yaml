@@ -1,4 +1,5 @@
 name: Suite
+  dataproviderthreadcount:3
 listeners:
   - com.tac.listeners.ListenerClass
   - com.tac.listeners.MethodInterceptor
