@@ -24,12 +24,13 @@ public final class DriverFactory {
     public static WebDriver getDriver(String browser) throws MalformedURLException {
         WebDriver driver = null;
         String runmode = ReadPropertyFile.getValue("runmode");
+        String seleniumGridURL = ReadPropertyFile.getValue("seleniumgridurl");
 
         if (browser.equalsIgnoreCase("chrome")) {
             if (runmode.equalsIgnoreCase("remote")) {
                 DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setBrowserName(BrowserType.CHROME);
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+                driver = new RemoteWebDriver(new URL(seleniumGridURL), cap);
             } else {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
@@ -38,7 +39,7 @@ public final class DriverFactory {
             if (runmode.equalsIgnoreCase("remote")) {
                 DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setBrowserName(BrowserType.FIREFOX);
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+                driver = new RemoteWebDriver(new URL(seleniumGridURL), cap);
             } else {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();

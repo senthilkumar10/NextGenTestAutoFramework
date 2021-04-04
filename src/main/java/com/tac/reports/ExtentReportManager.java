@@ -3,21 +3,25 @@ package com.tac.reports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Objects;
+
 public final class ExtentReportManager {
 
     private ExtentReportManager(){}
 
     private static ThreadLocal<ExtentTest> extTest = new ThreadLocal<>();
 
-    protected static ExtentTest getExtentTest(){
+    static ExtentTest getExtentTest(){
         return extTest.get();
     }
 
-    protected static void setExtentTest(ExtentTest test){
-        extTest.set(test);
+    static void setExtentTest(ExtentTest test){
+        if(Objects.nonNull(test)){
+            extTest.set(test);
+        }
     }
 
-    protected static void unload(){
+    static void unload(){
         extTest.remove();
     }
 

@@ -17,21 +17,27 @@ public final class ELKUtils {
     private ELKUtils(){}
 
     public static void sendDataToELK(String testName, String status){
-        Map<String,String> map = new HashMap<>();
-        map.put("testName",testName);
-        map.put("status",status);
-        map.put("executionTime", LocalDateTime.now().toString());
 
-        Response response = RestAssured.given()
-                .header("Content-Type","application/json")
-                .log()
-                .all()
-                .body(map)
-                .post("http://localhost:9200/regression/results");
+        if(ReadPropertyFile.getValue("sendresultstoelk").equalsIgnoreCase("yes")){
 
-        Assert.assertEquals(response.statusCode(),201);
+            Map<String,String> map = new HashMap<>();
+            map.put("testName",testName);
+            map.put("status",status);
+            map.put("executionTime", LocalDateTime.now().toString());
 
-        response.prettyPrint();
+            Response response = RestAssured.given()
+                    .header("Content-Type","application/json")
+                    .log()
+                    .all()
+                    .body(map)
+                    .post(ReadPropertyFile.getValue("elasticsearchurl"));
+
+            Assert.assertEquals(response.statusCode(),201);
+
+            response.prettyPrint();
+        }
+
+
     }
 
 

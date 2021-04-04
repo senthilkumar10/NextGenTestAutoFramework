@@ -2,6 +2,8 @@ package com.tac.driver;
 
 import org.openqa.selenium.WebDriver;
 
+import java.util.Objects;
+
 public final class DriverManager {
 
     private DriverManager() {}
@@ -12,11 +14,13 @@ public final class DriverManager {
         return dr.get();
     }
 
-    public static void setDriver(WebDriver driverRefer){
-        dr.set(driverRefer);
+    static void setDriver(WebDriver driverRefer){
+        if (Objects.nonNull(driverRefer)) {
+            dr.set(driverRefer);
+        }
     }
 
-    public static void unload(){
+    static void unload(){
         dr.remove();
     }
 
