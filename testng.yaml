@@ -11,6 +11,6 @@ tests:
     classes:
       - com.tac.tests.OrangeHRMTest
       - com.tac.tests.AmazonMenuTest
-
+      - com.tac.tests.AmazonPrintLinkWithoutS
 
 
