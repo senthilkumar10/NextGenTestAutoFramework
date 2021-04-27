@@ -12,5 +12,6 @@ tests:
       - com.tac.tests.OrangeHRMTest
       - com.tac.tests.AmazonMenuTest
       - com.tac.tests.AmazonPrintLinkWithoutS
+      - com.tac.tests.CheckBoxFunctionalProg
 
 

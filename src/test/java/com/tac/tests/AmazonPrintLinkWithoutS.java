@@ -37,6 +37,21 @@ public class AmazonPrintLinkWithoutS extends BaseTest{
         System.out.println();
 
         allLinkText.forEach(System.out::println);
+
+        //Same Test done using the Streams
+
+        System.out.println();
+        System.out.println("*****Using Streams*******");
+        System.out.println();
+
+        List<WebElement> allLinks1 = new AmazonHomePage().fetchAllLinks();
+
+        allLinks1.stream()
+                .map(WebElement::getText)
+                .filter(e->e.trim().length()!=0)
+                .filter(e->!e.toLowerCase().trim().contains("s"))
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
     }
 
 }
