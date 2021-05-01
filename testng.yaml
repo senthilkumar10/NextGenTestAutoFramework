@@ -13,5 +13,6 @@ tests:
       - com.tac.tests.AmazonMenuTest
       - com.tac.tests.AmazonPrintLinkWithoutS
       - com.tac.tests.CheckBoxFunctionalProg
+      - com.tac.tests.BrokenLinkTest
 
 
