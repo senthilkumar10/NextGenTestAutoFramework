@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -36,6 +37,16 @@ public class BrokenLinkPage extends BasePage {
                 .stream()
                 .map(e->e.getAttribute("src"))
                 .collect(Collectors.toList());
+    }
+
+    public Map<Integer,List<String>> allSrcLinksGroupedByResponseCode() {
+
+        return DriverManager.getDriver()
+                .findElements(srcXpath)
+                .stream()
+                .parallel()
+                .map(e->e.getAttribute("src"))
+                .collect(Collectors.groupingBy(src->LinkUtils.getResponseCode(src)));
     }
 
 
